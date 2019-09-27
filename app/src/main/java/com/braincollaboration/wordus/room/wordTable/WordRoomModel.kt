@@ -17,14 +17,19 @@ data class WordRoomModel(
         @ColumnInfo(name = COLUMN_ID)
         var id: Long? = null,
         @ColumnInfo(name = COLUMN_TITLE)
-        var title: String?,
+        var title: String,
         @ColumnInfo(name = COLUMN_DESCRIPTION)
-        var description: String,
+        var description: String?,
         @ColumnInfo(name = COLUMN_CREATED_TIME)
         val createdTime: Date,
         @ColumnInfo(name = COLUMN_TASK_STATUS)
         var taskStatusEnum: WordStatusEnum
-) : Parcelable {
+) : Parcelable, Categorizable {
+
+    override val category: String
+        get() = title[0].toString()
+    override val name: String
+        get() = title
 
     companion object {
 
