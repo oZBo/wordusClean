@@ -9,7 +9,6 @@ import com.braincollaboration.wordus.feature.home.interactor.GetWords
 import com.braincollaboration.wordus.feature.home.view.WordPresentation
 import org.dipocket.core.clean.base.domain.viewmodel.BaseViewModel
 
-
 class WordsViewModel(private val getWords: GetWords) : BaseViewModel() {
 
     private val _words = MutableLiveData<List<WordPresentation>>()

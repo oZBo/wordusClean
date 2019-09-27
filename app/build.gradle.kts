@@ -19,8 +19,8 @@ android {
     buildTypes.getByName("release") {
         isMinifyEnabled = false
         proguardFiles(
-            getDefaultProguardFile("proguard-android-optimize.txt"),
-            "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
         )
     }
     compileOptions {
@@ -39,7 +39,8 @@ dependencies {
     implementation("androidx.core:core-ktx:1.2.0-alpha04")
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
     implementation("com.google.android.material:material:1.1.0-alpha10")
-    implementation("androidx.constraintlayout:constraintlayout:2.0.0-beta1") // don't update to beta2 (has an issues)
+    // don't update to beta2 (has an issues)
+    implementation("androidx.constraintlayout:constraintlayout:2.0.0-beta1")
 
     implementation("com.squareup.retrofit2:retrofit:2.5.0")
 
@@ -52,6 +53,10 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion")
     implementation("androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion")
+
+    implementation("androidx.room:room-ktx:$roomVersion")
+    implementation("androidx.room:room-runtime:$roomVersion")
+    kapt("androidx.room:room-compiler:$roomVersion")
 
     testImplementation("junit:junit:4.13-beta-2")
     androidTestImplementation("androidx.test:runner:1.2.0")
