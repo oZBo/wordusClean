@@ -27,6 +27,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+    dataBinding.isEnabled = true
 }
 
 androidExtensions.isExperimental = true
@@ -41,6 +42,7 @@ dependencies {
     implementation("com.google.android.material:material:1.1.0-alpha10")
     // don't update to beta2 (has an issues)
     implementation("androidx.constraintlayout:constraintlayout:2.0.0-beta1")
+    kapt("com.android.databinding:compiler:$gradleVersion")
 
     implementation("com.squareup.retrofit2:retrofit:2.5.0")
 
