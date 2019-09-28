@@ -7,7 +7,6 @@ import com.braincollaboration.wordus.base.functional.Either.Right
 import com.braincollaboration.wordus.base.interactor.UseCase.None
 import retrofit2.Call
 
-
 interface Repository {
 
     abstract class BaseNetwork {

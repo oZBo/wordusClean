@@ -16,8 +16,8 @@ data class WordRoomModel(
         @PrimaryKey(autoGenerate = true)
         @ColumnInfo(name = COLUMN_ID)
         var id: Long? = null,
-        @ColumnInfo(name = COLUMN_TITLE)
-        var title: String,
+        @ColumnInfo(name = COLUMN_WORD)
+        var word: String,
         @ColumnInfo(name = COLUMN_DESCRIPTION)
         var description: String?,
         @ColumnInfo(name = COLUMN_CREATED_TIME)
@@ -27,15 +27,15 @@ data class WordRoomModel(
 ) : Parcelable, Categorizable {
 
     override val category: String
-        get() = title[0].toString()
+        get() = word[0].toString()
     override val name: String
-        get() = title
+        get() = word
 
     companion object {
 
-        const val TABLE_NAME = "words"
+        const val TABLE_NAME = "word_table"
         const val COLUMN_ID = BaseColumns._ID
-        const val COLUMN_TITLE = "title"
+        const val COLUMN_WORD = "word"
         const val COLUMN_DESCRIPTION = "description"
         const val COLUMN_CREATED_TIME = "created_time"
         const val COLUMN_TASK_STATUS = "word_status"

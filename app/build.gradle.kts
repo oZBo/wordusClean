@@ -15,6 +15,9 @@ android {
         versionName = "1.0"
         testInstrumentationRunner = AndroidSdk.androidJUnitRunner
         vectorDrawables.useSupportLibrary = true
+
+        buildConfigField(ResValue.abyyLingvoType, ResValue.abyyLingvoName, "\"${ResValue.abyyLingvoValue}\"")
+        buildConfigField(ResValue.baseUrlType, ResValue.baseUrlName, "\"${ResValue.baseUrlValue}\"")
     }
     buildTypes.getByName("release") {
         isMinifyEnabled = false
@@ -44,7 +47,9 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.0.0-beta1")
     kapt("com.android.databinding:compiler:$gradleVersion")
 
-    implementation("com.squareup.retrofit2:retrofit:2.5.0")
+    implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
+    implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
+    implementation("com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2")
 
     implementation("org.jetbrains.kotlin:kotlin-reflect:1.3.50")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")

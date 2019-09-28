@@ -1,6 +1,6 @@
 package com.braincollaboration.wordus.base.domain.event
 
-abstract class Event<T>(val data: T) {
+abstract class Event<T>(private val data: T) {
     private var isInvoked = false
 
     operator fun invoke(action: (T) -> Unit) {

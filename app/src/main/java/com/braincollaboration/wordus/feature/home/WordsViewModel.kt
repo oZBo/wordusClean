@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.braincollaboration.wordus.base.interactor.UseCase
 import com.braincollaboration.wordus.feature.home.interactor.GetWords
 import com.braincollaboration.wordus.feature.home.view.WordPresentation
-import org.dipocket.core.clean.base.domain.viewmodel.BaseViewModel
+import com.braincollaboration.wordus.base.domain.viewmodel.BaseViewModel
 
 class WordsViewModel(private val getWords: GetWords) : BaseViewModel() {
 

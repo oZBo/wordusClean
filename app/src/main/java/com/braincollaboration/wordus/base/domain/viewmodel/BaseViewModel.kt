@@ -1,4 +1,4 @@
-package org.dipocket.core.clean.base.domain.viewmodel
+package com.braincollaboration.wordus.base.domain.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -35,13 +35,13 @@ abstract class BaseViewModel : ViewModel() {
     }
 
     protected fun <R> Either<Failure<*>, R>.handle(handler: (R) -> Unit = {}): Any =
-        either(::postFailure, handler)
+            either(::postFailure, handler)
 
     protected inline fun <reified R : Any> Either<Failure<*>, R>.getOrNull(): R? =
-        either(::postFailure) { it } as? R
+            either(::postFailure) { it } as? R
 
     protected inline fun <reified R : Any> Either<Failure<*>, R>.get(default: R): R =
-        getOrNull() ?: default
+            getOrNull() ?: default
 
     private fun addLoading(loading: Job) {
         _loading.value = (_loading.value ?: ArrayList()).apply { add(loading) }
