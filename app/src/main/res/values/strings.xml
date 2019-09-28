@@ -1,3 +1,10 @@
 <resources>
+
     <string name="app_name">WordusClean</string>
+
+    <!--fonts-->
+    <string name="font_regular" translatable="false">fonts/Assistant-Regular.ttf</string>
+    <string name="font_semi_bold" translatable="false">fonts/Assistant-SemiBold.ttf</string>
+    <string name="font_bold" translatable="false">fonts/Assistant-Bold.ttf</string>
+
 </resources>

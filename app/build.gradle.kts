@@ -58,6 +58,8 @@ dependencies {
     implementation("androidx.room:room-runtime:$roomVersion")
     kapt("androidx.room:room-compiler:$roomVersion")
 
+    implementation("uk.co.chrisjenx:calligraphy:2.3.0")
+
     testImplementation("junit:junit:4.13-beta-2")
     androidTestImplementation("androidx.test:runner:1.2.0")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.2.0")

@@ -6,6 +6,19 @@
         <item name="colorAccent">@color/colorAccent</item>
 
         <item name="android:windowContentTransitions">true</item>
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <style name="FontRegular">
+        <item name="fontPath">@string/font_regular</item>
+    </style>
+
+    <style name="FontSemiBold">
+        <item name="fontPath">@string/font_semi_bold</item>
+    </style>
+
+    <style name="FontBold">
+        <item name="fontPath">@string/font_bold</item>
     </style>
 
 </resources>
