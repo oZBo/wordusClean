@@ -26,6 +26,8 @@ class WordStatusTypeConverter {
 
 enum class WordStatusEnum {
     //do not change the order
-    NEW_WORD,
-    NO_DESCRIPTION, WITH_DESCRIPTION_NOT_SHOWN, WITH_DESCRIPTION_SHOWN
+    SEARCHING_MEANING,
+    NO_MEANING,
+    MEANING_NOT_SHOWN,
+    MEANING_SHOWN
 }
