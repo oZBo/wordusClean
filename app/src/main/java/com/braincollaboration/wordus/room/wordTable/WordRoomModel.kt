@@ -15,13 +15,13 @@ import java.util.*
 data class WordRoomModel(
         @PrimaryKey(autoGenerate = true)
         @ColumnInfo(name = COLUMN_ID)
-        var id: Long? = null,
+        var id: Long,
         @ColumnInfo(name = COLUMN_WORD)
         var word: String,
         @ColumnInfo(name = COLUMN_DESCRIPTION)
         var description: String?,
         @ColumnInfo(name = COLUMN_CREATED_TIME)
-        val createdTime: Date,
+        val createdTime: Date = Date(),
         @ColumnInfo(name = COLUMN_TASK_STATUS)
         var taskStatusEnum: WordStatusEnum = WordStatusEnum.SEARCHING_MEANING
 ) : Parcelable, Categorizable {
