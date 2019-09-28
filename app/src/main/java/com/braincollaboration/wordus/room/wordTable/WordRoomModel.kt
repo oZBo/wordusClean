@@ -23,7 +23,7 @@ data class WordRoomModel(
         @ColumnInfo(name = COLUMN_CREATED_TIME)
         val createdTime: Date,
         @ColumnInfo(name = COLUMN_TASK_STATUS)
-        var taskStatusEnum: WordStatusEnum
+        var taskStatusEnum: WordStatusEnum = WordStatusEnum.SEARCHING_MEANING
 ) : Parcelable, Categorizable {
 
     override val category: String
