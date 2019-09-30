@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.konan.properties.Properties
+
 plugins {
     id("com.android.application")
     id("kotlin-android")
@@ -16,20 +18,32 @@ android {
         testInstrumentationRunner = AndroidSdk.androidJUnitRunner
         vectorDrawables.useSupportLibrary = true
 
-        buildConfigField(ResValue.abyyLingvoType, ResValue.abyyLingvoName, "\"${ResValue.abyyLingvoValue}\"")
-        buildConfigField(ResValue.baseUrlType, ResValue.baseUrlName, "\"${ResValue.baseUrlValue}\"")
+        buildConfigField("String", ResValue.baseUrlName, "\"${ResValue.baseUrlValue}\"")
     }
-    buildTypes.getByName("release") {
-        isMinifyEnabled = false
-        proguardFiles(
+    
+    buildTypes.forEach { buildType ->
+        if (buildType.name == "release") {
+            buildType.isMinifyEnabled = false
+            buildType.proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
-        )
+            )
+        }
+
+        Properties().let {
+            val load = project.rootProject.file("local.properties").inputStream()
+            it.load(load)
+
+            val abyyAppKey = it.getProperty("abyy_app_key", "")
+            buildType.buildConfigField("String", "ABYY_APP_KEY", abyyAppKey)
+        }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     dataBinding.isEnabled = true
 }
 
@@ -43,7 +57,7 @@ dependencies {
     implementation("androidx.core:core-ktx:1.2.0-alpha04")
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
     implementation("com.google.android.material:material:1.1.0-alpha10")
-    // don't update to beta2 (has an issues)
+// don't update to beta2 (has an issues)
     implementation("androidx.constraintlayout:constraintlayout:2.0.0-beta1")
     kapt("com.android.databinding:compiler:$gradleVersion")
 

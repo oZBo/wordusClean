@@ -17,13 +17,6 @@ object FileTree {
 }
 
 object ResValue {
-    private const val buildConfigFieldStringType = "String"
-
-    const val abyyLingvoType = buildConfigFieldStringType
-    const val abyyLingvoName = "APP_KEY"
-    const val abyyLingvoValue = "MGU1YmEyZTctYTY5Mi00ZjhhLWJlM2UtYmU5ODg5YzcyMWI4OjkzY2FkYmEyYWQ2ZDQyYmQ5NmE0MGNhMTE2MWQ0YWZi"
-
-    const val baseUrlType = buildConfigFieldStringType
     const val baseUrlName = "BASE_URL"
     const val baseUrlValue = "https://developers.lingvolive.com/"
 }
