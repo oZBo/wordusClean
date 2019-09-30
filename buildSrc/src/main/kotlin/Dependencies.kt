@@ -17,6 +17,8 @@ object FileTree {
 }
 
 object ResValue {
+    const val abyyAppKeyName = "ABYY_APP_KEY"
+
     const val baseUrlName = "BASE_URL"
     const val baseUrlValue = "https://developers.lingvolive.com/"
 }

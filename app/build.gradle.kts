@@ -20,8 +20,8 @@ android {
 
         buildConfigField("String", ResValue.baseUrlName, "\"${ResValue.baseUrlValue}\"")
 
-        val abyyAppKey = getAbyyAppKey()
-        buildConfigField("String", "ABYY_APP_KEY", abyyAppKey)
+        val abyyAppKeyValue = getAbyyAppKey()
+        buildConfigField("String", ResValue.abyyAppKeyName, abyyAppKeyValue)
     }
 
     buildTypes.getByName("release") {
