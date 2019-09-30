@@ -50,7 +50,8 @@ dependencies {
     implementation("androidx.core:core-ktx:1.2.0-alpha04")
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
     implementation("com.google.android.material:material:1.1.0-alpha10")
-    implementation("androidx.constraintlayout:constraintlayout:1.1.3")
+// don't update to beta2 (has an issues)
+    implementation("androidx.constraintlayout:constraintlayout:2.0.0-beta1")
     kapt("com.android.databinding:compiler:$gradleVersion")
 
     implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
