@@ -18,11 +18,11 @@ data class WordRoomModel(
         var id: Long,
         @ColumnInfo(name = COLUMN_WORD)
         var word: String,
-        @ColumnInfo(name = COLUMN_DESCRIPTION)
+        @ColumnInfo(name = COLUMN_MEANING)
         var description: String?,
         @ColumnInfo(name = COLUMN_CREATED_TIME)
         val createdTime: Date = Date(),
-        @ColumnInfo(name = COLUMN_TASK_STATUS)
+        @ColumnInfo(name = COLUMN_STATUS)
         var taskStatusEnum: WordStatusEnum = WordStatusEnum.SEARCHING_MEANING
 ) : Parcelable, Categorizable {
 
@@ -36,9 +36,9 @@ data class WordRoomModel(
         const val TABLE_NAME = "word_table"
         const val COLUMN_ID = BaseColumns._ID
         const val COLUMN_WORD = "word"
-        const val COLUMN_DESCRIPTION = "description"
+        const val COLUMN_MEANING = "meaning"
         const val COLUMN_CREATED_TIME = "created_time"
-        const val COLUMN_TASK_STATUS = "word_status"
+        const val COLUMN_STATUS = "status"
 
     }
 }

@@ -13,7 +13,7 @@ interface WordRoomDao {
 
     @Query("SELECT * FROM ${WordRoomModel.TABLE_NAME} " +
             "WHERE ${WordRoomModel.COLUMN_WORD} LIKE '%' || :argLetter || '%' " +
-            "OR ${WordRoomModel.COLUMN_DESCRIPTION} LIKE '%' || :argLetter || '%'")
+            "OR ${WordRoomModel.COLUMN_MEANING} LIKE '%' || :argLetter || '%'")
     suspend fun getWordByLetter(argLetter: String): LiveData<MutableList<WordRoomModel>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -34,13 +34,13 @@ interface WordRoomDao {
     @Query("SELECT * FROM ${WordRoomModel.TABLE_NAME} WHERE ${WordRoomModel.COLUMN_WORD} LIKE :word")
     suspend fun getWordByName(word: String): LiveData<MutableList<WordRoomModel>>
 
-    @Query("SELECT * FROM ${WordRoomModel.TABLE_NAME} WHERE ${WordRoomModel.COLUMN_DESCRIPTION} LIKE :wordDescription")
+    @Query("SELECT * FROM ${WordRoomModel.TABLE_NAME} WHERE ${WordRoomModel.COLUMN_MEANING} LIKE :wordDescription")
     suspend fun getWordByDescription(wordDescription: String): LiveData<MutableList<WordRoomModel>>
 
     @Query("SELECT * FROM ${WordRoomModel.TABLE_NAME} WHERE ${WordRoomModel.COLUMN_CREATED_TIME} LIKE :wordCreatedTime")
     suspend fun getWordByCreatedTime(wordCreatedTime: Date): WordRoomModel
 
-    @Query("SELECT * FROM ${WordRoomModel.TABLE_NAME} WHERE ${WordRoomModel.COLUMN_TASK_STATUS} LIKE :wordStatusEnum")
+    @Query("SELECT * FROM ${WordRoomModel.TABLE_NAME} WHERE ${WordRoomModel.COLUMN_STATUS} LIKE :wordStatusEnum")
     suspend fun getWordByStatus(wordStatusEnum: WordStatusEnum): LiveData<MutableList<WordRoomModel>>
 
 }
