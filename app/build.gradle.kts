@@ -19,24 +19,17 @@ android {
         vectorDrawables.useSupportLibrary = true
 
         buildConfigField("String", ResValue.baseUrlName, "\"${ResValue.baseUrlValue}\"")
+
+        val abyyAppKey = getAbyyAppKey()
+        buildConfigField("String", "ABYY_APP_KEY", abyyAppKey)
     }
-    
-    buildTypes.forEach { buildType ->
-        if (buildType.name == "release") {
-            buildType.isMinifyEnabled = false
-            buildType.proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-        }
 
-        Properties().let {
-            val load = project.rootProject.file("local.properties").inputStream()
-            it.load(load)
-
-            val abyyAppKey = it.getProperty("abyy_app_key", "")
-            buildType.buildConfigField("String", "ABYY_APP_KEY", abyyAppKey)
-        }
+    buildTypes.getByName("release") {
+        isMinifyEnabled = false
+        proguardFiles(
+            getDefaultProguardFile("proguard-android-optimize.txt"),
+            "proguard-rules.pro"
+        )
     }
 
     compileOptions {
@@ -84,4 +77,13 @@ dependencies {
     testImplementation("junit:junit:4.13-beta-2")
     androidTestImplementation("androidx.test:runner:1.2.0")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.2.0")
+}
+
+fun getAbyyAppKey(): String {
+    Properties().let {
+        val load = project.rootProject.file("local.properties").inputStream()
+        it.load(load)
+
+        return it.getProperty("abyy_app_key", "")
+    }
 }
