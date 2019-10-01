@@ -18,6 +18,10 @@ android {
         testInstrumentationRunner = AndroidSdk.androidJUnitRunner
         vectorDrawables.useSupportLibrary = true
 
+        kapt.arguments {
+            arg("room.schemaLocation", "$projectDir/schemas")
+        }
+
         buildConfigField("String", ResValue.baseUrlName, "\"${ResValue.baseUrlValue}\"")
 
         val abyyAppKeyValue = getAbyyAppKey()

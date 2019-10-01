@@ -19,7 +19,7 @@ interface WordMeaningApi {
                 "&dstLang={$DICTIONARY_ID}&searchZone={$SEARCH_ZONE}&startIndex={$START_INDEX}&pageSize={$PAGE_SIZE}"
     }
 
-    @Headers("Authorization: Basic ${BuildConfig.APP_KEY}")
+    @Headers("Authorization: Basic ${BuildConfig.ABYY_APP_KEY}")
     @POST("api/v1.1/authenticate")
     fun getBasicToken(): Call<ResponseBody>
 
