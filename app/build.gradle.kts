@@ -1,5 +1,12 @@
 import org.jetbrains.kotlin.konan.properties.Properties
 
+private val properties: Properties by lazy {
+    Properties().also {
+        val load = project.rootProject.file("local.properties").inputStream()
+        it.load(load)
+    }
+}
+
 plugins {
     id("com.android.application")
     id("kotlin-android")
@@ -54,7 +61,7 @@ dependencies {
     implementation("androidx.core:core-ktx:1.2.0-alpha04")
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
     implementation("com.google.android.material:material:1.1.0-alpha10")
-// don't update to beta2 (has an issues)
+    // don't update to beta2 (has an issues)
     implementation("androidx.constraintlayout:constraintlayout:2.0.0-beta1")
     kapt("com.android.databinding:compiler:$gradleVersion")
 
@@ -84,10 +91,5 @@ dependencies {
 }
 
 fun getAbyyAppKey(): String {
-    Properties().let {
-        val load = project.rootProject.file("local.properties").inputStream()
-        it.load(load)
-
-        return it.getProperty("abyy_app_key", "")
-    }
+    return properties.getProperty("abyy_app_key", "")
 }
