@@ -1,3 +1,4 @@
+import org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions
 import org.jetbrains.kotlin.konan.properties.Properties
 
 private val properties: Properties by lazy {
@@ -42,10 +43,12 @@ android {
             "proguard-rules.pro"
         )
     }
-
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
+    }
+    (kotlinOptions as KotlinJvmOptions).apply {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 
     dataBinding.isEnabled = true
