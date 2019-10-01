@@ -88,6 +88,13 @@ dependencies {
 
     implementation("uk.co.chrisjenx:calligraphy:2.3.0")
 
+    // Koin for Android
+    implementation("org.koin:koin-android:$koinVersion")
+    // Koin AndroidX Scope features
+    implementation("org.koin:koin-androidx-scope:$koinVersion")
+    // Koin AndroidX ViewModel features
+    implementation("org.koin:koin-androidx-viewmodel:$koinVersion")
+
     testImplementation("junit:junit:4.13-beta-2")
     androidTestImplementation("androidx.test:runner:1.2.0")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.2.0")

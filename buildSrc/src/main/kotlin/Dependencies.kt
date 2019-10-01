@@ -4,6 +4,7 @@ const val retrofitVersion = "2.5.0"
 const val roomVersion = "2.1.0"
 const val coroutinesVersion = "1.3.1"
 const val lifecycleVersion = "2.2.0-alpha05"
+const val koinVersion = "2.0.1"
 
 object AndroidSdk {
     const val min = 23
