@@ -1,12 +1,15 @@
 package com.braincollaboration.wordus.feature.home
 
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.liveData
+import androidx.lifecycle.viewModelScope
 import com.braincollaboration.wordus.base.domain.viewmodel.BaseViewModel
 import com.braincollaboration.wordus.base.interactor.UseCase
-import com.braincollaboration.wordus.feature.home.interactor.GetWords
+import com.braincollaboration.wordus.feature.home.interactor.GetWordsUseCase
 import com.braincollaboration.wordus.feature.home.view.WordPresentation
 
-class WordsViewModel(private val getWords: GetWords) : BaseViewModel() {
+class WordsViewModel(private val getWords: GetWordsUseCase) : BaseViewModel() {
 
     private val _words = MutableLiveData<List<WordPresentation>>()
 
@@ -14,14 +17,6 @@ class WordsViewModel(private val getWords: GetWords) : BaseViewModel() {
         val words = getWords(UseCase.None)
         _words.value = words.get(emptyList())
         emitSource(_words)
-    }
-
-    class ViewModelFactory(private var getWords: GetWords) : ViewModelProvider.Factory {
-
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            return WordsViewModel(getWords) as T
-        }
-
     }
 
 }

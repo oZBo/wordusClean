@@ -2,8 +2,13 @@ package com.braincollaboration.wordus.application
 
 import android.app.Application
 import com.braincollaboration.wordus.R
+import com.braincollaboration.wordus.feature.home.WordsViewModel
+import com.braincollaboration.wordus.feature.home.api.WordRepository
+import com.braincollaboration.wordus.feature.home.api.WordService
+import com.braincollaboration.wordus.feature.home.interactor.GetWordsUseCase
 import com.braincollaboration.wordus.room.AppDatabase
 import org.koin.android.ext.koin.androidContext
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.startKoin
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -15,11 +20,11 @@ class App : Application(), AppBridge {
 
     private val appModule = module {
 
-        // single instance of HelloRepository
-//        single<HelloRepository> { HelloRepositoryImpl() }
+        single { WordService(retrofit) }
+        single<WordRepository> { WordRepository.Network(get()) }
+        single { GetWordsUseCase(get()) }
 
-        // Simple Presenter Factory
-//        factory { MySimplePresenter(get()) }
+        viewModel { WordsViewModel(get()) }
     }
 
     override fun onCreate() {
