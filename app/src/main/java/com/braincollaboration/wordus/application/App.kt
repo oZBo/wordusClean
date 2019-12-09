@@ -7,12 +7,12 @@ import com.braincollaboration.wordus.feature.home.api.WordRepository
 import com.braincollaboration.wordus.feature.home.api.WordService
 import com.braincollaboration.wordus.feature.home.interactor.GetWordsUseCase
 import com.braincollaboration.wordus.room.AppDatabase
+import io.github.inflationx.calligraphy3.CalligraphyConfig
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.startKoin
 import org.koin.dsl.module
 import retrofit2.Retrofit
-import uk.co.chrisjenx.calligraphy.CalligraphyConfig
 
 class App : Application(), AppBridge {
 
@@ -49,12 +49,10 @@ class App : Application(), AppBridge {
     }
 
     private fun initCustomFont() {
-        CalligraphyConfig.initDefault(
             CalligraphyConfig.Builder()
                 .setDefaultFontPath(getString(R.string.font_regular))
                 .setFontAttrId(R.attr.fontPath)
                 .build()
-        )
     }
 
     private fun initDatabase() {

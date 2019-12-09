@@ -1,9 +1,9 @@
-const val kotlinVersion = "1.3.50"
-const val gradleVersion = "3.5.0"
+const val kotlinVersion = "1.3.61"
+const val gradleVersion = "3.5.3"
 const val retrofitVersion = "2.5.0"
-const val roomVersion = "2.1.0"
-const val coroutinesVersion = "1.3.1"
-const val lifecycleVersion = "2.2.0-alpha05"
+const val roomVersion = "2.2.2"
+const val coroutinesVersion = "1.3.2"
+const val lifecycleVersion = "2.2.0-rc03"
 const val koinVersion = "2.0.1"
 
 object AndroidSdk {

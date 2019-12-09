@@ -4,12 +4,12 @@ import android.content.Context
 import android.os.Bundle
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
+import io.github.inflationx.viewpump.ViewPumpContextWrapper
 
 abstract class BaseActivity(@LayoutRes layoutId: Int) : AppCompatActivity(layoutId) {
 
     override fun attachBaseContext(newBase: Context?) {
-        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))
+        super.attachBaseContext(newBase?.let { ViewPumpContextWrapper.wrap(it) })
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
