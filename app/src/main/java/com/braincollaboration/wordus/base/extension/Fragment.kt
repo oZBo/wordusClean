@@ -4,7 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.LiveData
-import com.braincollaboration.wordus.base.domain.exception.Failure
+import com.braincollaboration.wordus.domain.exception.Failure
 import kotlinx.coroutines.Job
 
 inline fun FragmentManager.inTransaction(func: FragmentTransaction.() -> FragmentTransaction) =

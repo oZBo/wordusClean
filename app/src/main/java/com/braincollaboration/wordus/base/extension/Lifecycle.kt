@@ -3,7 +3,7 @@ package com.braincollaboration.wordus.base.extension
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
-import com.braincollaboration.wordus.base.domain.exception.Failure
+import com.braincollaboration.wordus.domain.exception.Failure
 import kotlinx.coroutines.Job
 
 fun <T : Any, L : LiveData<T>> LifecycleOwner.observe(liveData: L, body: (T?) -> Unit) =

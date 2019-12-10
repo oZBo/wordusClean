@@ -2,11 +2,11 @@ package com.braincollaboration.wordus.application
 
 import android.app.Application
 import com.braincollaboration.wordus.R
-import com.braincollaboration.wordus.feature.home.WordsViewModel
-import com.braincollaboration.wordus.feature.home.api.WordRepository
-import com.braincollaboration.wordus.feature.home.api.WordService
-import com.braincollaboration.wordus.feature.home.interactor.GetWordsUseCase
-import com.braincollaboration.wordus.room.AppDatabase
+import com.braincollaboration.wordus.presentation.screens.WordsViewModel
+import com.braincollaboration.wordus.data.repository.WordRepository
+import com.braincollaboration.wordus.data.network.api.WordService
+import com.braincollaboration.wordus.domain.usecase.GetWordsUseCase
+import com.braincollaboration.wordus.data.room.AppDatabase
 import io.github.inflationx.calligraphy3.CalligraphyConfig
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -24,7 +24,11 @@ class App : Application(), AppBridge {
         single<WordRepository> { WordRepository.Network(get()) }
         single { GetWordsUseCase(get()) }
 
-        viewModel { WordsViewModel(get()) }
+        viewModel {
+            WordsViewModel(
+                get()
+            )
+        }
     }
 
     override fun onCreate() {
