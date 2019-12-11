@@ -1,7 +1,7 @@
 package com.braincollaboration.wordus.domain.livedata
 
 import androidx.lifecycle.MutableLiveData
-import com.braincollaboration.wordus.base.functional.ObservableBlockingQueue
+import com.braincollaboration.wordus.presentation.base.functional.ObservableBlockingQueue
 
 class LifecycleAwareMutableLiveData<T>(isBlocked: Boolean = true) : MutableLiveData<T>() {
 

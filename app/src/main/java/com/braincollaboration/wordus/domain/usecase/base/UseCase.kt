@@ -1,7 +1,7 @@
 package com.braincollaboration.wordus.domain.usecase.base
 
 import com.braincollaboration.wordus.domain.exception.Failure
-import com.braincollaboration.wordus.base.functional.Either
+import com.braincollaboration.wordus.presentation.base.functional.Either
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.withContext

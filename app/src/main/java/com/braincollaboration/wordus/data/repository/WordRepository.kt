@@ -1,6 +1,6 @@
 package com.braincollaboration.wordus.data.repository
 
-import com.braincollaboration.wordus.base.functional.Either
+import com.braincollaboration.wordus.presentation.base.functional.Either
 import com.braincollaboration.wordus.data.room.wordTable.WordRoomModel
 import com.braincollaboration.wordus.data.room.wordTable.toWordPresentation
 import com.braincollaboration.wordus.domain.exception.Failure

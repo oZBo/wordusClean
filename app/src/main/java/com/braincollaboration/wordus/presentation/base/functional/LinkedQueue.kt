@@ -1,4 +1,4 @@
-package com.braincollaboration.wordus.base.functional
+package com.braincollaboration.wordus.presentation.base.functional
 
 import java.util.*
 

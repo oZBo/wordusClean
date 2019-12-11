@@ -1,9 +1,9 @@
 package com.braincollaboration.wordus.domain.repository.base
 
 import com.braincollaboration.wordus.domain.exception.Failure
-import com.braincollaboration.wordus.base.functional.Either
-import com.braincollaboration.wordus.base.functional.Either.Left
-import com.braincollaboration.wordus.base.functional.Either.Right
+import com.braincollaboration.wordus.presentation.base.functional.Either
+import com.braincollaboration.wordus.presentation.base.functional.Either.Left
+import com.braincollaboration.wordus.presentation.base.functional.Either.Right
 import com.braincollaboration.wordus.domain.usecase.base.UseCase.None
 import retrofit2.Call
 

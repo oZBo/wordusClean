@@ -1,4 +1,4 @@
-package com.braincollaboration.wordus.application
+package com.braincollaboration.wordus.presentation.application
 
 import android.app.Application
 import com.braincollaboration.wordus.R

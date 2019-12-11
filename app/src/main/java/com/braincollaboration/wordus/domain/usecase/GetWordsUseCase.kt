@@ -1,7 +1,7 @@
 package com.braincollaboration.wordus.domain.usecase
 
 import com.braincollaboration.wordus.domain.exception.Failure
-import com.braincollaboration.wordus.base.functional.Either
+import com.braincollaboration.wordus.presentation.base.functional.Either
 import com.braincollaboration.wordus.domain.usecase.base.UseCase
 import com.braincollaboration.wordus.data.repository.WordRepository
 import com.braincollaboration.wordus.data.room.wordTable.WordRoomModel

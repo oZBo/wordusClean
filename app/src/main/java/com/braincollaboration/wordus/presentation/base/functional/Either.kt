@@ -1,4 +1,4 @@
-package com.braincollaboration.wordus.base.functional
+package com.braincollaboration.wordus.presentation.base.functional
 
 /**
  * Represents a value of one of two possible types (a disjoint union).

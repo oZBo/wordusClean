@@ -1,4 +1,4 @@
-package com.braincollaboration.wordus.base.functional
+package com.braincollaboration.wordus.presentation.base.functional
 
 open class ObservableBlockingQueue<T>(var isBlocked: Boolean) : LinkedQueue<T>() {
 

@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.braincollaboration.wordus.domain.event.Event
 import com.braincollaboration.wordus.domain.exception.Failure
 import com.braincollaboration.wordus.domain.livedata.LifecycleAwareMutableLiveData
-import com.braincollaboration.wordus.base.functional.Either
+import com.braincollaboration.wordus.presentation.base.functional.Either
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 

@@ -4,7 +4,7 @@
     package="com.braincollaboration.wordus">
 
     <application
-        android:name=".application.App"
+        android:name="com.braincollaboration.wordus.presentation.application.App"
         android:allowBackup="true"
         android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"

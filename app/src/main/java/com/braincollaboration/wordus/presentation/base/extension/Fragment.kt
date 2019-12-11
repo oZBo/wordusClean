@@ -1,4 +1,4 @@
-package com.braincollaboration.wordus.base.extension
+package com.braincollaboration.wordus.presentation.base.extension
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
