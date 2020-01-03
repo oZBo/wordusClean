@@ -11,7 +11,7 @@ import com.braincollaboration.wordus.data.room.converters.WordStatusTypeConverte
 import com.braincollaboration.wordus.data.room.wordTable.WordRoomDao
 import com.braincollaboration.wordus.data.room.wordTable.WordRoomModel
 
-@Database(entities = [WordRoomModel::class], version = 1)
+@Database(entities = [WordRoomModel::class], version = DB_VERSION)
 @TypeConverters(DateTypeConverter::class, WordStatusTypeConverter::class)
 abstract class AppDatabase : RoomDatabase() {
 
@@ -19,30 +19,27 @@ abstract class AppDatabase : RoomDatabase() {
 
     companion object {
 
-        private var INSTANCE: AppDatabase? = null
+        @Volatile
+        private var databaseInstance: AppDatabase? = null
         private var DB_NAME: String = "${BuildConfig.APPLICATION_ID}.database"
 
-        fun initAppDataBase(context: Context): AppDatabase? {
-            if (INSTANCE == null) {
-                synchronized(AppDatabase::class) {
-                    INSTANCE = Room
-                            .databaseBuilder(context, AppDatabase::class.java, DB_NAME)
-                            .build()
+        fun initAppDataBase(context: Context): AppDatabase =
+            databaseInstance ?: synchronized(this) {
+                databaseInstance ?: buildDatabaseInstance(context).also {
+                    databaseInstance = it
                 }
             }
 
-            return INSTANCE
-        }
+        private fun buildDatabaseInstance(context: Context) =
+            Room.databaseBuilder(context, AppDatabase::class.java, DB_NAME).build()
 
-        fun getAppDataBase(): AppDatabase? {
-
-            return INSTANCE
-        }
+        fun getAppDataBase(): AppDatabase? = databaseInstance
 
         fun destroyDataBase() {
-
-            INSTANCE = null
+            databaseInstance = null
         }
 
     }
 }
+
+private const val DB_VERSION = 1

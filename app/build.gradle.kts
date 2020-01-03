@@ -37,7 +37,7 @@ android {
     }
 
     buildTypes.getByName("release") {
-        isMinifyEnabled = false
+        isMinifyEnabled = false //R8 shrinking
         proguardFiles(
             getDefaultProguardFile("proguard-android-optimize.txt"),
             "proguard-rules.pro"
@@ -60,12 +60,12 @@ dependencies {
     implementation(fileTree(FileTree.fileTree))
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion")
     implementation("androidx.appcompat:appcompat:1.1.0")
-    implementation("androidx.fragment:fragment-ktx:1.2.0-rc03")
+    implementation("androidx.fragment:fragment-ktx:1.2.0-rc04")
     implementation("androidx.core:core-ktx:1.2.0-rc01")
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
-    implementation("com.google.android.material:material:1.2.0-alpha02")
+    implementation("com.google.android.material:material:1.2.0-alpha03")
     // don't update to beta2 (has an issues)
-    implementation("androidx.constraintlayout:constraintlayout:2.0.0-beta3")
+    implementation("androidx.constraintlayout:constraintlayout:2.0.0-beta4")
     kapt("com.android.databinding:compiler:$gradleVersion")
 
     implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
