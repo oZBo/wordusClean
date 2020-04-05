@@ -19,15 +19,12 @@ class App : Application(), AppBridge {
     override val retrofit: Retrofit by lazy { provideRetrofit() }
 
     private val appModule = module {
-
         single { WordService(retrofit) }
         single<WordRepository> { WordRepository.Network(get()) }
         single { GetWordsUseCase(get()) }
 
         viewModel {
-            WordsViewModel(
-                get()
-            )
+            WordsViewModel(get())
         }
     }
 
